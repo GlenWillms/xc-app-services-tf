@@ -49,3 +49,4 @@ prep.sh
 
 *.pem
 *.p12
+myplan.tfplan
