@@ -242,7 +242,7 @@ resource "volterra_http_loadbalancer" "appProxy" {
         proto_redirect    = "incoming-proto"
         host_redirect     = "${var.name}.${var.delegated_dns_domain}"
         path_redirect     = "/pt/"
-        response_code     = "302"
+        response_code     = "307"
         retain_all_params = true
         port_redirect     = 0
       }
