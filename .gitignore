@@ -48,3 +48,4 @@ prep.sh
 **/routes.json
 
 *.pem
+*.p12
