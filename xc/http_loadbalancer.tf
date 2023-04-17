@@ -227,27 +227,27 @@ resource "volterra_http_loadbalancer" "appProxy" {
       }
     }
   }
-  # routes {
-  #   redirect_route {
-  #     http_method = "ANY"
-  #     path {
-  #       path = "/"
-  #     }
-  #     headers {
-  #       name         = "Accept-Language"
-  #       regex        = "(.*[pP][tT]-[bB][rR].*)"
-  #       invert_match = false
-  #     }
-  #     route_redirect {
-  #       proto_redirect    = "incoming-proto"
-  #       host_redirect     = "${var.name}.${var.delegated_dns_domain}"
-  #       path_redirect     = "/pt/"
-  #       response_code     = "301"
-  #       retain_all_params = true
-  #       port_redirect     = 0
-  #     }
-  #   }
-  # }
+  routes {
+    redirect_route {
+      http_method = "ANY"
+      path {
+        path = "/"
+      }
+      headers {
+        name         = "Accept-Language"
+        regex        = "(.*[pP][tT]-[bB][rR].*)"
+        invert_match = false
+      }
+      route_redirect {
+        proto_redirect    = "incoming-proto"
+        host_redirect     = "${var.name}.${var.delegated_dns_domain}"
+        path_redirect     = "/pt/"
+        response_code     = "302"
+        retain_all_params = true
+        port_redirect     = 0
+      }
+    }
+  }
   routes {
     redirect_route {
       http_method = "ANY"
